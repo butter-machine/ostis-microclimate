@@ -1,0 +1,27 @@
+sc_node_struct -> microclimate_record;;
+microclimate_record <- ui_start_sc_element;;
+
+sc_node_not_relation -> mesurment_parameter;;
+sc_node_not_relation -> humidity;;
+sc_node_not_relation -> temperature;;
+sc_node_not_relation -> value;;
+
+mesurment_parameter -> humidity;;
+mesurment_parameter -> temperature;;
+
+sc_node_role_relation -> rrel_mesurement_time;;
+sc_node_role_relation -> rrel_mesurement_place;;
+
+sc_node_norole_relation -> nrel_percental_mesurement;;
+sc_node_norole_relation -> nrel_celsius_mesurement;;
+sc_node_norole_relation -> nrel_zero_point;;
+sc_node_norole_relation -> nrel_value;;
+
+temperature -> zero_cels;;
+zero_cels => nrel_celsius_mesurement: zero;;
+number -> zero;;
+zero => nrel_value: [0];;
+nrel_celsius_mesurement => nrel_zero_point: zero_cels;;
+
+sc_node_not_relation -> room;;
+room -> office;;
