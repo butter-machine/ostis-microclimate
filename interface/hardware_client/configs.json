@@ -1,0 +1,5 @@
+{
+    "baudrate": 9600,
+    "timeout": 10,
+    "comport": "/dev/ttyUSB0"
+}

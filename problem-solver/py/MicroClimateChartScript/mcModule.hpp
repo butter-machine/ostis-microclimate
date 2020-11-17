@@ -4,18 +4,22 @@
 * (See accompanying file COPYING.MIT or copy at http://opensource.org/licenses/MIT)
 */
 
+
 #pragma once
 
-#include <sc-memory/sc_module.hpp>
+#include "sc-memory/sc_module.hpp"
+#include "mcService.hpp"
+#include "mcModule.generated.hpp"
 
-#include "exampleModule.generated.hpp"
 
-class ExampleModule : public ScModule
+class MicroClimateChartModule : public ScModule
 {
-  SC_CLASS(LoadOrder(50))
+  SC_CLASS(LoadOrder(100))
   SC_GENERATED_BODY()
 
   virtual sc_result InitializeImpl() override;
-
   virtual sc_result ShutdownImpl() override;
+
+private:
+  std::unique_ptr<MicroClimateChartPythonService> m_mcService;
 };
